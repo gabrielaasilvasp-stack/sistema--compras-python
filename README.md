@@ -1,24 +1,41 @@
-# sistema--compras-python
-Sistema de caixa virtual em Python
- Sistema de Compras em Python
+# 🛒 Sistema de Compras em Python
 
-O que é esse sistema?
+Sistema de caixa virtual em Python
+
+---
+# 📌 O que é esse sistema?
 
 Nosso sistema é um caixa virtual simples e completo.
 Assim como uma operadora de caixa que passa o código de barras,
 aqui você digita o nome do produto, o preço e a quantidade —
 tudo pelo computador, de forma prática e rápida.
 
-Além disso, se a compra passar de R$ 100,00, o sistema aplica
-automaticamente um desconto de 10% no total. Como uma operadora
-de caixa, porém virtual.
+ Se a compra passar de R$ 100,00, o sistema aplica
+automaticamente um desconto de 10% no total.
+Como uma operadora de caixa, porém virtual.
 
+---
  Requisitos
 
 - Computador (o sistema não roda em celular)
-- Python 3 instalado
+- Windows (Utilizando o comando python)
+- Linux e macOS (Utilizando o comando python3)
+- Biblioteca customtkinter instalada (para o Mini PDV com interface gráfica)
 
-# Como usar
+
+pip install customtkinter
+
+
+---
+
+ Versões do Sistema
+
+ Versão 1 — Sistema de Compras no Terminal
+
+Versão simples que roda direto no terminal. O operador digita
+os dados pelo teclado e o resultado aparece como texto.
+
+Como usar:
 
 Passo 1 — Digite o produto
 Assim como uma operadora passava o código de barras, aqui você
@@ -33,8 +50,9 @@ Você pode continuar adicionando mais produtos à vontade.
 Quando terminar, o sistema soma tudo e aplica o desconto
 de 10% automaticamente se o total passar de R$ 100,00.
 
- Exemplo de uso
+Exemplo de uso:
 
+```
 Digite o nome do produto: Arroz
 Digite o preço do produto: R$ 5.00
 Digite a quantidade de 'Arroz': 3
@@ -44,16 +62,77 @@ Deseja adicionar mais itens? (s/n): n
 Total sem desconto: R$ 15.00
 Nenhum desconto aplicado.
 Total a pagar: R$ 15.00
+```
 
-  Funcionalidades
+---
+
+ Versão 2 — Mini PDV com Interface Gráfica
+
+Versão avançada com janela gráfica em modo escuro (Dark Mode),
+botões coloridos e geração de cupom fiscal na tela —
+igual ao caixa de um mercado de verdade.
+
+Como usar:
+
+1. Preencha os campos: Nome do Produto, Preço Unitário e Quantidade
+2. Clique em **Adicionar Item** para lançar o produto no carrinho
+3. Repita para cada produto da compra
+4. Clique em **Emitir Nota Fiscal** para fechar a venda e gerar o cupom
+
+Exemplo de cupom gerado:
+
+```
+=============================================
+           NOTA FISCAL DE VENDA
+=============================================
+ ITEM               QTD   PRECO     TOTAL
+---------------------------------------------
+ Arroz               3      5.00     15.00
+ Feijão              2      8.00     16.00
+---------------------------------------------
+ Subtotal Bruto:               R$     31.00
+ Desconto Aplicado (10%):      R$      0.00
+---------------------------------------------
+ TOTAL A PAGAR:                R$     31.00
+=============================================
+        OBRIGADO PELA PREFERÊNCIA!
+=============================================
+```
+
+
+ Funcionalidades
 
 - Registrar produtos com nome, preço e quantidade
 - Permitir adicionar vários itens na mesma compra
 - Calcular o total automaticamente
 - Aplicar desconto de 10% para compras acima de R$ 100,00
 - Exibir resumo final da compra
+- Interface gráfica moderna com cupom fiscal formatado (Versão 2)
+- Validação de dados — protege contra erros de digitação
+- Reset automático do caixa após emissão da nota
 
-## 👩‍💻 Desenvolvido por alunos da Escola da Nuvem 
-Derli Joaquim de Souza
-Maiara Souza de Castro
-Gabriela Silva 
+  Como o sistema funciona por dentro
+
+ Bibliotecas utilizadas
+
+- *customtkinter*: responsável pela janela gráfica, botões,
+  campos de texto e o modo escuro (Dark Mode)
+
+ Principais funções
+
+| Função | O que faz |
+|---|---|
+| `__init__` | Desenha toda a janela e os elementos visuais na tela |
+| `adicionar_item` | Captura os dados digitados, calcula o subtotal e adiciona ao carrinho |
+| `emitir_nota_fiscal` | Aplica o desconto, gera o cupom formatado e reseta o caixa |
+
+Regra de negócio
+
+Se o total da compra ultrapassar R$ 100,00, o sistema aplica
+automaticamente 10% de desconto sobre o valor total.
+
+👩‍💻 Desenvolvido por alunos da Escola da Nuvem
+
+- Derli Joaquim de Souza
+- Maiara Souza de Castro
+- Gabriela Silva
